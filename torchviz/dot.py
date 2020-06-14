@@ -15,9 +15,9 @@ def make_dot(model, x):
 
     Args:
         model: torch nn model
-        x: input tensor
+        x: list of input tensors
     """
-    var = model(x)
+    var = model(*x)
     params = dict(model.named_parameters())
     if params is not None:
         assert all(isinstance(p, Variable) for p in params.values())
